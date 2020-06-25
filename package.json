@@ -19,7 +19,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.0",
-    "styled-normalize": "^8.0.6"
+    "styled-normalize": "^8.0.6",
+    "trello": "^0.10.0"
   },
   "name": "nextjs-redux-starter",
   "version": "1.0.0",
