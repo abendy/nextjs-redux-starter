@@ -8,6 +8,7 @@ module.exports = {
   target: 'serverless',
   webpack: (config, { dev }) => {
     config.output.publicPath = `${assetPrefix}${config.output.publicPath}`
+    config.node = { fs: 'empty' }
 
     return config
   }
