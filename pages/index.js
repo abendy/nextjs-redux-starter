@@ -1,3 +1,3 @@
-import SearchRepoContainer from 'containers/SearchRepoContainer'
+import TrelloApiContainer from 'containers/TrelloApiContainer'
 
-export default SearchRepoContainer
+export default TrelloApiContainer

@@ -1,21 +1,21 @@
 import Immutable from 'immutable'
-import * as ActionType from 'actions/repos'
+import * as ActionType from 'actions/orgs'
 
 export const initialState = Immutable.fromJS({
   isLoading: false,
-  lang: ''
+  id: ''
 })
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ActionType.GET_TOP_REPOS:
+    case ActionType.GET_ORGS:
       return state.set('isLoading', true)
 
-    case ActionType.GET_TOP_REPOS_SUCCESS:
+    case ActionType.GET_ORGS_SUCCESS:
       return state.merge(
         Object.assign({}, action.payload, {
           isLoading: false,
-          lang: action.lang
+          id: action.id
         })
       )
 
