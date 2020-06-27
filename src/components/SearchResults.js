@@ -8,9 +8,14 @@ const Container = styled.div`
   padding: 1em;
   margin: 1em auto;
 `
+const List = styled.ul`
+  padding: 0;
+`
 const Item = styled.li`
   background: #eee;
-  padding: 4px 12px;
+  list-style: none;
+  margin: 1px;
+  padding: 4px;
   :hover {
     a {
       color: #eee;
@@ -19,29 +24,26 @@ const Item = styled.li`
   }
 `
 
-const REPO_COUNT = 10
-const SearchResults = ({ repos }) => {
+const SearchResults = ({ orgs }) => {
   return (
     <Container>
-      <h2>Top { REPO_COUNT } { repos.get('lang') } repos</h2>
-      <small>{ repos.get('totalCount').toLocaleString() } repos found</small>
-      <ul>
+      <List>
         {
-          repos.get('items').take(REPO_COUNT).map(item => (
+          orgs.get('items').map(item => (
             <Item key={item.get('id')}>
-              <a href={item.get('htmlUrl')} target='_blank'>
-                { item.get('name') }
+              <a href={'org/' + item.get('id')}>
+                { item.get('displayName') }
               </a>
             </Item>
           ))
         }
-      </ul>
+      </List>
     </Container>
   )
 }
 
 SearchResults.propTypes = {
-  repos: PropTypes.instanceOf(Map).isRequired
+  orgs: PropTypes.instanceOf(Map).isRequired
 }
 
 export default SearchResults

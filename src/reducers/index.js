@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import repos from './repos'
+import orgs from './orgs'
 
 export default combineReducers({
-  repos
+  orgs
 })

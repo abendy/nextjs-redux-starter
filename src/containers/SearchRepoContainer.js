@@ -3,29 +3,30 @@ import PropTypes from 'prop-types'
 import { Map } from 'immutable'
 import { connect } from 'react-redux'
 
-import { getTopRepos } from 'actions/repos'
+import { getOrgs } from 'actions/orgs'
 import SearchResults from 'components/SearchResults'
 
-class SearchRepoContainer extends Component {
+class SearchOrgContainer extends Component {
   static async getInitialProps ({ store, query }) {
-    const lang = query.lang || 'javascript'
-    await store.dispatch(getTopRepos({ lang }))
-    return { lang }
+    const id = query.id || 'me'
+    await store.dispatch(getOrgs({ id }))
+    return { id }
   }
 
   componentDidMount () {
-    const { getTopRepos } = this.props
-    getTopRepos({ lang: 'ruby' })
+    const { getOrgs } = this.props
+    getOrgs({ id: 'me' })
   }
 
   render () {
-    const { repos } = this.props
+    const { orgs } = this.props
+
     return (
       <Fragment>
         <div onClick={this._goToAbout}>
           GO TO ABOUT (with <code>router</code>)
         </div>
-        <SearchResults repos={repos} />
+        <SearchResults orgs={orgs} />
       </Fragment>
     )
   }
@@ -37,16 +38,16 @@ class SearchRepoContainer extends Component {
 
 function mapStateToProps (state) {
   return {
-    repos: state.repos
+    orgs: state.orgs
   }
 }
 
-SearchRepoContainer.propTypes = {
-  repos: PropTypes.instanceOf(Map).isRequired,
-  getTopRepos: PropTypes.func.isRequired
+SearchOrgContainer.propTypes = {
+  orgs: PropTypes.instanceOf(Map).isRequired,
+  getOrgs: PropTypes.func.isRequired
 }
 
-export { SearchRepoContainer }
+export { SearchOrgContainer }
 export default connect(mapStateToProps, {
-  getTopRepos
-})(SearchRepoContainer)
+  getOrgs
+})(SearchOrgContainer)
