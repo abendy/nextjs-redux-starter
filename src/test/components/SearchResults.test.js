@@ -7,17 +7,15 @@ describe('Components::SearchResults', () => {
   let props
   beforeEach(() => {
     props = {
-      repos: Immutable.fromJS({
-        lang: 'lang',
+      orgs: Immutable.fromJS({
+        id: 'id',
         totalCount: 2,
         items: [{
           id: 1,
-          name: 'repo 1',
-          htmlUrl: 'url 1'
+          displayName: 'org 1'
         }, {
           id: 2,
-          name: 'repo 2',
-          htmlUrl: 'url 2'
+          displayName: 'org 2'
         }]
       })
     }
@@ -30,10 +28,10 @@ describe('Components::SearchResults', () => {
 
   it('renders all items', () => {
     const utils = setup()
-    props.repos.get('items').forEach((repo) => {
-      expect(utils.getByText(repo.get('name'))).toHaveAttribute(
+    props.orgs.get('items').forEach((org) => {
+      expect(utils.getByText(org.get('displayName'))).toHaveAttribute(
         'href',
-        repo.get('htmlUrl')
+        `org/${org.get('id')}`
       )
     })
   })
