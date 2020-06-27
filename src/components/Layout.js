@@ -13,7 +13,7 @@ export default class Layout extends PureComponent {
               <a>About</a>
             </Link>
             <Link href='/'>
-              <a>Redux demo</a>
+              <a>Trello</a>
             </Link>
           </menu>
           <style jsx>{`
