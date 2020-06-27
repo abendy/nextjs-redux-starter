@@ -4,7 +4,7 @@ import { Map } from 'immutable'
 import { connect } from 'react-redux'
 
 import { getOrgs } from 'actions/orgs'
-import SearchResults from 'components/SearchResults'
+import ApiResponse from 'components/ApiResponse'
 
 class SearchOrgContainer extends Component {
   static async getInitialProps ({ store, query }) {
@@ -26,7 +26,7 @@ class SearchOrgContainer extends Component {
         <div onClick={this._goToAbout}>
           GO TO ABOUT (with <code>router</code>)
         </div>
-        <SearchResults orgs={orgs} />
+        <ApiResponse orgs={orgs} />
       </Fragment>
     )
   }

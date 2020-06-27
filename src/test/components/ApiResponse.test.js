@@ -1,9 +1,9 @@
 import React from 'react'
 import Immutable from 'immutable'
 import { render } from 'test-utils'
-import SearchResults from 'components/SearchResults'
+import ApiResponse from 'components/ApiResponse'
 
-describe('Components::SearchResults', () => {
+describe('Components::ApiResponse', () => {
   let props
   beforeEach(() => {
     props = {
@@ -22,7 +22,7 @@ describe('Components::SearchResults', () => {
   })
 
   const setup = () => {
-    const utils = render(<SearchResults {...props} />)
+    const utils = render(<ApiResponse {...props} />)
     return utils
   }
 

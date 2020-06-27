@@ -24,7 +24,7 @@ const Item = styled.li`
   }
 `
 
-const SearchResults = ({ orgs }) => {
+const ApiResponse = ({ orgs }) => {
   return (
     <Container>
       <List>
@@ -42,8 +42,8 @@ const SearchResults = ({ orgs }) => {
   )
 }
 
-SearchResults.propTypes = {
+ApiResponse.propTypes = {
   orgs: PropTypes.instanceOf(Map).isRequired
 }
 
-export default SearchResults
+export default ApiResponse
