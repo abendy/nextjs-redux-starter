@@ -7,7 +7,5 @@
     "use": "@now/next"
   }],
   "alias": "nextjs-redux-starter.now.sh",
-  "env": {
-    "GITHUB_API_ENDPOINT": "https://api.github.com"
-  }
+  "env": {}
 }
